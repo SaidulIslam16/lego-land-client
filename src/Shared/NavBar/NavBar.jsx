@@ -5,7 +5,8 @@ const NavBar = () => {
 
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>About</Link></li>
+        <li><Link to='/'>All Toys</Link></li>
+        <li><Link to='/'>Blogs</Link></li>
     </>
 
     return (
@@ -19,7 +20,7 @@ const NavBar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <Link className="btn btn-ghost normal-case text-xl">LegoLand</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-xl"> <img className="h-9" src={logo} alt="" /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -27,7 +28,7 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <button className='mr-5 bg-slate-200 py-2 px-4 rounded-lg hover:bg-slate-300'>Login</button>
             </div>
         </div>
     );
