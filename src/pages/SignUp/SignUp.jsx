@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { FaGoogle } from 'react-icons/fa';
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const SignUp = () => {
+
+    const { signUp } = useContext(AuthContext);
+
     const handleFormSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -10,6 +15,12 @@ const SignUp = () => {
         const password = form.password.value;
         const photourl = form.photourl.value;
         console.log(name, email, password, photourl);
+        signUp(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
     }
     return (
         <div>

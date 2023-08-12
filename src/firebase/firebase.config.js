@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env.LEGO_APP_apiKey,
-    authDomain: process.env.LEGO_APP_authDomain,
-    projectId: process.env.LEGO_APP_projectId,
-    storageBucket: process.env.LEGO_APP_storageBucket,
-    messagingSenderId: process.env.LEGO_APP_messagingSenderId,
-    appId: process.env.LEGO_APP_appId,
+    apiKey: "AIzaSyBzVxMyn9xcbNypS9IMBeq42dkf7hNNy8A",
+    authDomain: "lego-land-64c95.firebaseapp.com",
+    projectId: "lego-land-64c95",
+    storageBucket: "lego-land-64c95.appspot.com",
+    messagingSenderId: "694239554918",
+    appId: "1:694239554918:web:bdac1d7ee9db0f3303eca7"
 };
 
 // Initialize Firebase
