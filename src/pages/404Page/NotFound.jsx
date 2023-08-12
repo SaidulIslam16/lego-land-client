@@ -4,6 +4,7 @@ const NotFound = () => {
     return (
         <div className='h-full '>
             <img className='h-screen mx-auto' src={notfound} alt="" />
+            <p>Please go back to Home</p>
         </div>
     );
 };
