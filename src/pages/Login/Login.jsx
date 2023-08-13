@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from 'react-icons/fa';
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
 
-    const { user } = useContext(AuthContext);
+    const { logIn } = useContext(AuthContext);
+    const navigate = useNavigate();
 
 
     const handleFormSubmit = event => {
@@ -14,7 +15,13 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
-        console.log(user)
+        logIn(email, password)
+            .then(result => {
+                const user = result.user;
+                navigate('/')
+            })
+            .catch(error => console.error(error))
+
     }
     return (
         <div>

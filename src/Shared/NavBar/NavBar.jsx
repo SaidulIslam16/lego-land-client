@@ -1,12 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png"
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import { FaUser } from "react-icons/fa";
+import Swal from 'sweetalert2'
 
 const NavBar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleSignout = () => {
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                navigate('/')
+            })
+            .catch(error => console.error(error))
+    }
 
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>All Toys</Link></li>
         <li><Link to='/blogs'>Blogs</Link></li>
+        {
+            user?.email ? <>
+                <li><Link to='/blogs'>Add a Tody</Link></li>
+                <li><Link to='/blogs'>My Toys</Link></li>
+            </> : ''
+        }
     </>
 
     return (
@@ -28,7 +56,23 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login'><button className='mr-5 bg-slate-200 py-2 px-4 rounded-lg hover:bg-slate-300'>Login</button></Link>
+                {
+                    user?.email ? <>
+                        <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 h-10 rounded-full flex justify-center items-center">
+                                    {
+                                        user?.photoUrl ? <img src={user.photoUrl} /> : <FaUser />
+                                    }
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                <li><button onClick={handleSignout}>Logout</button></li>
+                            </ul>
+                        </div>
+                    </> :
+                        <Link to='/login'><button className='mr-5 bg-slate-200 py-2 px-4 rounded-lg hover:bg-slate-300'>Login</button></Link>
+                }
             </div>
         </div>
     );
