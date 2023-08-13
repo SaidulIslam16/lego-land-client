@@ -20,7 +20,7 @@ const AddAToy = () => {
         const quantity = form.quantity.value;
         const details = form.details.value;
 
-        const product = {
+        const toy = {
             photoURL,
             toyName,
             sellerName,
@@ -32,7 +32,17 @@ const AddAToy = () => {
             details
         }
 
-        console.log(product);
+        console.log(toy);
+
+        fetch('http://localhost:5000/toys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(toy)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
 
     return (
