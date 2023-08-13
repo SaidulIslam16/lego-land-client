@@ -5,6 +5,10 @@ import NotFound from "../pages/404Page/NotFound";
 import Blogs from "../pages/Blogs/Blogs";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute";
+import MyToys from "../pages/MyToys/MyToys";
+import AddAToy from "../pages/AddAToy/AddAToy";
+import AllToys from "../pages/AllToys/AllToys";
 
 export const router = createBrowserRouter([
     {
@@ -14,6 +18,10 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/alltoys',
+                element: <AllToys></AllToys>
             },
             {
                 path: '/blogs',
@@ -26,6 +34,14 @@ export const router = createBrowserRouter([
             {
                 path: 'signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/mytoys',
+                element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
+            },
+            {
+                path: '/addatoy',
+                element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>
             }
         ]
     },

@@ -16,7 +16,7 @@ const NavBar = () => {
                 Swal.fire({
                     position: 'top-end',
                     icon: 'success',
-                    title: 'Your work has been saved',
+                    title: 'Signout Successful',
                     showConfirmButton: false,
                     timer: 1500
                 })
@@ -27,14 +27,14 @@ const NavBar = () => {
 
     const navItems = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>All Toys</Link></li>
-        <li><Link to='/blogs'>Blogs</Link></li>
+        <li><Link to='/alltoys'>All Toys</Link></li>
         {
             user?.email ? <>
-                <li><Link to='/blogs'>Add a Tody</Link></li>
-                <li><Link to='/blogs'>My Toys</Link></li>
+                <li><Link to='/addatoy'>Add a Tody</Link></li>
+                <li><Link to='/mytoys'>My Toys</Link></li>
             </> : ''
         }
+        <li><Link to='/blogs'>Blogs</Link></li>
     </>
 
     return (
@@ -62,7 +62,7 @@ const NavBar = () => {
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 h-10 rounded-full flex justify-center items-center">
                                     {
-                                        user?.photoUrl ? <img src={user.photoUrl} /> : <FaUser />
+                                        user?.photoURL ? <img src={user?.photoURL} /> : <FaUser />
                                     }
                                 </div>
                             </label>
@@ -71,7 +71,10 @@ const NavBar = () => {
                             </ul>
                         </div>
                     </> :
-                        <Link to='/login'><button className='mr-5 bg-slate-200 py-2 px-4 rounded-lg hover:bg-slate-300'>Login</button></Link>
+                        <>
+                            <Link to='/login'><button className='mr-5 bg-slate-200 py-2 px-4 rounded-lg hover:bg-slate-300'>Login</button></Link>
+                            <Link to='/signup'><button className='mr-5 bg-slate-200 py-2 px-4 rounded-lg hover:bg-slate-300'>SignUp</button></Link>
+                        </>
                 }
             </div>
         </div>

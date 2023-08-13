@@ -1,12 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from 'react-icons/fa';
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
 
-    const { logIn } = useContext(AuthContext);
+    const { logIn, GoogleSignIn } = useContext(AuthContext);
+
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
 
     const handleFormSubmit = event => {
@@ -18,11 +21,21 @@ const Login = () => {
         logIn(email, password)
             .then(result => {
                 const user = result.user;
-                navigate('/')
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error))
 
     }
+
+    const handleGoogleSignIn = () => {
+        GoogleSignIn()
+            .then(result => {
+                const user = result.user;
+                navigate(from, { replace: true });
+            })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -53,7 +66,7 @@ const Login = () => {
                             <div className="my-3 text-center">
                                 <p>Don't Have account? <span className="font-bold text-blue-600"><Link to='/signup'>Signup</Link></span></p>
                                 <p className="my-3">-or-</p>
-                                <button className="btn btn-circle btn-outline"> <FaGoogle /></button>
+                                <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline"> <FaGoogle /></button>
                             </div>
 
                         </div>
