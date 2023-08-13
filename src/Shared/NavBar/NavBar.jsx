@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png"
+import placeholder from "../../assets/profile-place-holder.jpg"
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaUser } from "react-icons/fa";
@@ -62,7 +63,7 @@ const NavBar = () => {
                             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div title={user?.displayName} className="w-10 h-10 rounded-full flex justify-center items-center">
                                     {
-                                        user?.photoURL ? <img src={user?.photoURL} /> : <FaUser />
+                                        user?.photoURL ? <img src={user?.photoURL} /> : <img src={placeholder} />
                                     }
                                 </div>
                             </label>
