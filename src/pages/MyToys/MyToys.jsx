@@ -14,7 +14,6 @@ const MyToys = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setMyToys(data)
             })
     }, [url])
@@ -29,8 +28,7 @@ const MyToys = () => {
                             <th>Toy Name</th>
                             <th>Sub-category</th>
                             <th>Price</th>
-                            <th>Available Quantity</th>
-                            <th></th>
+                            <th>Quantity</th>
                         </tr>
                     </thead>
                     <tbody>
