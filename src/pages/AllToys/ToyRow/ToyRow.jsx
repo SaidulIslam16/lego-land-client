@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import imgplaceholder from "../../../assets/profile-place-holder.jpg"
 
 const ToyRow = ({ toy }) => {
@@ -29,10 +30,10 @@ const ToyRow = ({ toy }) => {
             <td>
                 <span className="badge badge-ghost badge-sm">{subCategory}</span>
             </td>
-            <td>{price}</td>
+            <td>${price}</td>
             <td>{quantity}</td>
             <th>
-                <button className="btn btn-ghost btn-xs">View Details</button>
+                <button className="btn btn-ghost btn-xs"><Link to={`/toys/${_id}`}>View Dettails</Link></button>
             </th>
         </tr>
     );

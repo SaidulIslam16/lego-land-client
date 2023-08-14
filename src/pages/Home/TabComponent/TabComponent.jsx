@@ -1,8 +1,19 @@
 
+import { useEffect, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
 const TabComponent = () => {
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/categories')
+            .then(res => res.json())
+            .then(data => {
+                setCategories(data)
+            })
+    }, [])
+
     return (
         <div className='my-12'>
             <div className='text-4xl text-center font-bold my-10'>
@@ -10,9 +21,9 @@ const TabComponent = () => {
             </div>
             <Tabs>
                 <TabList>
-                    <Tab>Title 1</Tab>
-                    <Tab>Title 2</Tab>
-                    <Tab>Title 3</Tab>
+                    {
+                        categories.map(category => <Tab key={category._id}>{category.subCategory}</Tab>)
+                    }
                 </TabList>
                 <TabPanel>
                     <p>Content for Tab 1</p>
