@@ -1,12 +1,11 @@
 import { FaPen, FaTrash } from "react-icons/fa";
 import Swal from 'sweetalert2'
 
-const MyToysRow = ({ mytoy }) => {
+const MyToysRow = ({ mytoy, setMyToys, myToys }) => {
 
     const { photoURL, price, quantity, sellerName, subCategory, toyName, _id } = mytoy;
 
     const handleDelete = (id) => {
-        console.log(id);
 
         Swal.fire({
             title: 'Are you sure?',
@@ -30,6 +29,10 @@ const MyToysRow = ({ mytoy }) => {
                                 'Your file has been deleted.',
                                 'success'
                             )
+
+                            // Chaging the UI on time
+                            const remainingToys = myToys.filter(toy => toy._id !== id)
+                            setMyToys(remainingToys)
                         }
                         else {
                             Swal.fire({
