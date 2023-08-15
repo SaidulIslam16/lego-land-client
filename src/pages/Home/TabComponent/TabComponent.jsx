@@ -14,7 +14,7 @@ const TabComponent = () => {
     const [city, setCity] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/categories')
+        fetch('https://lego-land-server.vercel.app/categories')
             .then(res => res.json())
             .then(data => {
                 setCategories(data)
@@ -23,7 +23,7 @@ const TabComponent = () => {
 
     // Marvel toys
     useEffect(() => {
-        fetch('http://localhost:5000/toys/categories/marvel')
+        fetch('https://lego-land-server.vercel.app/toys/categories/marvel')
             .then(res => res.json())
             .then(data => {
                 setMarvelTosys(data);
@@ -32,7 +32,7 @@ const TabComponent = () => {
 
     // Architechture
     useEffect(() => {
-        fetch('http://localhost:5000/toys/categories/architecture')
+        fetch('https://lego-land-server.vercel.app/toys/categories/architecture')
             .then(res => res.json())
             .then(data => {
                 setArchitecture(data);
@@ -41,7 +41,7 @@ const TabComponent = () => {
 
     // Car
     useEffect(() => {
-        fetch('http://localhost:5000/toys/categories/car')
+        fetch('https://lego-land-server.vercel.app/toys/categories/car')
             .then(res => res.json())
             .then(data => {
                 setCar(data);
@@ -50,7 +50,7 @@ const TabComponent = () => {
 
     // minecraft
     useEffect(() => {
-        fetch('http://localhost:5000/toys/categories/minecraft')
+        fetch('https://lego-land-server.vercel.app/toys/categories/minecraft')
             .then(res => res.json())
             .then(data => {
                 setMinecraft(data);
@@ -59,7 +59,7 @@ const TabComponent = () => {
 
     // Sports
     useEffect(() => {
-        fetch('http://localhost:5000/toys/categories/sports')
+        fetch('https://lego-land-server.vercel.app/toys/categories/sports')
             .then(res => res.json())
             .then(data => {
                 setSports(data);
@@ -68,7 +68,7 @@ const TabComponent = () => {
 
     // City
     useEffect(() => {
-        fetch('http://localhost:5000/toys/categories/city')
+        fetch('https://lego-land-server.vercel.app/toys/categories/city')
             .then(res => res.json())
             .then(data => {
                 setCity(data);

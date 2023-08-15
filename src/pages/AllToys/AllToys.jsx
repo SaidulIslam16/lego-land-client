@@ -8,10 +8,11 @@ const AllToys = () => {
 
     const handleSearch = event => {
         event.preventDefault();
-        const searchText = event.target.search.value;
+        let searchText = event.target.search.value;
+        searchText = searchText.toLowerCase();
         console.log(searchText);
 
-        const filteredToys = toys.filter(toy => toy.toyName === searchText);
+        const filteredToys = toys.filter(toy => toy.toyName.toLowerCase().includes(searchText));
         console.log(filteredToys);
         setToys(filteredToys)
 

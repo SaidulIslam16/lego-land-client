@@ -9,7 +9,7 @@ const MyToysRow = ({ mytoy, setMyToys, myToys }) => {
 
 
     const handleUpdate = id => {
-        fetch(`http://localhost:5000/toys/${id}`, {
+        fetch(`https://lego-land-server.vercel.app/toys/${id}`, {
             method: "patch",
             headers: {
                 'content-type': 'application/json'
@@ -34,7 +34,7 @@ const MyToysRow = ({ mytoy, setMyToys, myToys }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/toys/${id}`, {
+                fetch(`https://lego-land-server.vercel.app/toys/${id}`, {
                     method: 'DELETE',
 
                 })

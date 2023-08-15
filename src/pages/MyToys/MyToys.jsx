@@ -6,7 +6,7 @@ const MyToys = () => {
 
     const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/toys?email=${user?.email}`;
+    const url = `https://lego-land-server.vercel.app/toys?email=${user?.email}`;
 
     const [myToys, setMyToys] = useState([]);
 

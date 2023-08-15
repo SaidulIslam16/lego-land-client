@@ -38,7 +38,7 @@ const UpdateToy = () => {
 
         // console.log(updatedtoy);
 
-        const url = `http://localhost:5000/toys/${_id}`
+        const url = `https://lego-land-server.vercel.app/toys/${_id}`
         console.log(url);
 
         fetch(url, {

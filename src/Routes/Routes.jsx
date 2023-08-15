@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
             {
                 path: '/toys',
                 element: <AllToys></AllToys>,
-                loader: () => fetch('http://localhost:5000/toys')
+                loader: () => fetch('https://lego-land-server.vercel.app/toys')
             },
             {
                 path: '/blogs',
@@ -54,12 +54,12 @@ export const router = createBrowserRouter([
             {
                 path: '/toys/:id',
                 element: <PrivateRoute><ToyDetails></ToyDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+                loader: ({ params }) => fetch(`https://lego-land-server.vercel.app/toys/${params.id}`)
             },
             {
                 path: '/mytoys/:id',
                 element: <PrivateRoute><UpdateToy></UpdateToy></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`)
+                loader: ({ params }) => fetch(`https://lego-land-server.vercel.app/toys/${params.id}`)
             }
         ]
     },
