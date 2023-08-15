@@ -87,7 +87,7 @@ const TabComponent = () => {
                     }
                 </TabList>
                 <TabPanel>
-                    <div className='flex gap-5 justify-between mt-12'>
+                    <div className='flex gap-5 mt-12'>
                         {
                             marvelToys.map(toy => <TabProductCard
                                 key={toy._d}
@@ -97,7 +97,7 @@ const TabComponent = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='flex gap-5 justify-between mt-12'>
+                    <div className='flex gap-5 mt-12'>
                         {
                             car.map(toy => <TabProductCard
                                 key={toy._d}
@@ -107,7 +107,7 @@ const TabComponent = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='flex gap-5 justify-between mt-12'>
+                    <div className='flex gap-5 mt-12'>
                         {
                             minecraft.map(toy => <TabProductCard
                                 key={toy._d}
@@ -117,7 +117,7 @@ const TabComponent = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='flex gap-5 justify-between mt-12'>
+                    <div className='flex gap-5 mt-12'>
                         {
                             architecture.map(toy => <TabProductCard
                                 key={toy._d}
@@ -127,7 +127,7 @@ const TabComponent = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                    <div className='flex gap-5 justify-between mt-12'>
+                    <div className='flex gap-5 mt-12'>
                         {
                             sports.map(toy => <TabProductCard
                                 key={toy._d}
