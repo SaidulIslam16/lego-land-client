@@ -1,10 +1,27 @@
+import { data } from "autoprefixer";
 import { FaPen, FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 const MyToysRow = ({ mytoy, setMyToys, myToys }) => {
 
     const { photoURL, price, quantity, sellerName, subCategory, toyName, _id } = mytoy;
 
+
+    const handleUpdate = id => {
+        fetch(`http://localhost:5000/toys/${id}`, {
+            method: "patch",
+            headers: {
+                'content-type': 'application/json'
+            },
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+    }
+
+    // Delete Method
     const handleDelete = (id) => {
 
         Swal.fire({
@@ -70,7 +87,7 @@ const MyToysRow = ({ mytoy, setMyToys, myToys }) => {
             <td>${price}</td>
             <td>{quantity}</td>
             <th>
-                <button className="btn btn-ghost">Edit <FaPen /> </button>
+                <Link to={`/mytoys/${_id}`}><button className="btn btn-ghost">Edit <FaPen /></button></Link>
             </th>
             <th>
                 <button onClick={() => handleDelete(_id)} className="btn btn-error">
