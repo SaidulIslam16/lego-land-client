@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const TabProductCard = ({ toy }) => {
     const { photoURL, toyName, rating, price, _id } = toy;
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card md:w-96 bg-base-100 shadow-xl">
             <figure><img className="h-72" src={photoURL} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{toyName}</h2>
