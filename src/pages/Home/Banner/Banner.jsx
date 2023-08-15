@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
@@ -7,7 +8,7 @@ const Banner = () => {
                 <div className="max-w-md">
                     <h1 className="mb-5 text-5xl font-bold">Build and tend a Japanese garden</h1>
                     <p className="mb-5">Grow your creativity with the new LEGO</p>
-                    <button className="btn bg-red-600 border-none text-white hover:bg-red-700">Shop Now</button>
+                    <Link to='/toys'><button className="btn bg-red-600 border-none text-white hover:bg-red-700">Check All Toys</button></Link>
                 </div>
             </div>
         </div>

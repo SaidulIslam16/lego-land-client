@@ -33,7 +33,7 @@ const ToyRow = ({ toy }) => {
             <td>${price}</td>
             <td>{quantity}</td>
             <th>
-                <button className="btn btn-ghost btn-xs"><Link to={`/toys/${_id}`}>View Dettails</Link></button>
+                <button className="btn bg-red-600 text-white btn-xs hover:bg-red-700"><Link to={`/toys/${_id}`}>View Dettails</Link></button>
             </th>
         </tr>
     );

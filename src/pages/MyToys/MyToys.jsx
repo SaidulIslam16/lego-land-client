@@ -20,6 +20,9 @@ const MyToys = () => {
 
     return (
         <div className="my-12">
+            <div className="my-5">
+                <h1 className="text-3xl font-bold">Total Toys: {myToys.length}</h1>
+            </div>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

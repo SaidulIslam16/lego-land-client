@@ -137,7 +137,7 @@ const UpdateToy = () => {
                                     </div>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <input type="submit" className="btn bg-blue-600 hover:bg-blue-700 text-white" value="Update Toy Info" />
+                                    <input type="submit" className="btn bg-red-600 hover:bg-red-700 text-white" value="Update Toy Info" />
                                 </div>
                             </form>
 

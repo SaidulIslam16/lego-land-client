@@ -124,7 +124,7 @@ const AddAToy = () => {
                                     </div>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <input type="submit" className="btn bg-blue-600 hover:bg-blue-700 text-white" value="Add Product" />
+                                    <input type="submit" className="btn bg-red-600 hover:bg-red-700 text-white" value="Add Product" />
                                 </div>
                             </form>
 
