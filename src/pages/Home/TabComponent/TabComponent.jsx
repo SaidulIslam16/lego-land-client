@@ -2,15 +2,26 @@
 import { useEffect, useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import TabProductCard from '../TabProductCard/TabProductCard';
 
 const TabComponent = () => {
     const [categories, setCategories] = useState([]);
+    const [marvelToys, setMarvelTosys] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:5000/categories')
             .then(res => res.json())
             .then(data => {
                 setCategories(data)
+            })
+    }, [])
+
+    // Marvel toys
+    useEffect(() => {
+        fetch('http://localhost:5000/toys/categories/marvel')
+            .then(res => res.json())
+            .then(data => {
+                setMarvelTosys(data);
             })
     }, [])
 
@@ -26,7 +37,14 @@ const TabComponent = () => {
                     }
                 </TabList>
                 <TabPanel>
-                    <p>Content for Tab 1</p>
+                    <div className='flex gap-5 justify-between mt-12'>
+                        {
+                            marvelToys.map(toy => <TabProductCard
+                                key={toy._d}
+                                toy={toy}
+                            ></TabProductCard>)
+                        }
+                    </div>
                 </TabPanel>
                 <TabPanel>
                     <p>Content for Tab 2</p>
